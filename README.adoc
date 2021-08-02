@@ -1,0 +1,73 @@
+= Conditional Build Step Plugin for Jenkins
+
+image:https://img.shields.io/jenkins/plugin/v/conditional-buildstep.svg[link="https://plugins.jenkins.io/conditional-buildstep"]
+image:https://img.shields.io/github/release/jenkinsci/conditional-buildstep-plugin.svg?label=changelog[link="https://github.com/jenkinsci/conditional-buildstep-plugin/releases/latest"]
+image:https://img.shields.io/jenkins/plugin/i/conditional-buildstep.svg?color=blue[link="https://plugins.jenkins.io/conditional-buildstep"]
+
+A buildstep wrapping any number of other buildsteps, controlling their execution based on a defined condition.
+
+== Info
+
+This plugin requires the
+https://plugins.jenkins.io/token-macro/[TokenMacro Plugin] and the 
+https://plugins.jenkins.io/run-condition/[Run Condition Plugin] to be installed!
+
+* Ever wanted to have more control whether a step should be executed or not?
+* Want to reduce the number of jobs doing nearly the same thing?
+
+Add a conditional buildstep which acts as a container.
+It will allow you to define a condition controling the execution of the step(s).
+
+== Conditions
+
+There are multiple conditions one can choose of, these are all defined by the
+https://plugins.jenkins.io/run-condition/[Run Condition Plugin]
+
+Missing builder
+
+If you're not able to add the builder of your choice within a
+conditional build step (because it's not available within the dropdown),
+then this is likely because the builder does not provide a
+`@DataBoundConstructor` constructor and/or the Descriptor does not
+extend `hudson.tasks.BuildStepDescriptor`.
+For non programmers: the plugin you would like to use does not yet follow the newest Jenkins coding guidelines.
+Without this, the conditional buildstep plugin is not able to work with it.
+
+== Conditional step (single)
+
+// TODO: Move https://wiki.jenkins-ci.org/pages/viewpage.action?pageId=59507542 to the documentation
+
+This build step allows you to select any build step and define a
+condition to control whether the step should be executed.
+For reasons why you might want to use this step, see
+https://wiki.jenkins-ci.org/pages/viewpage.action?pageId=59507542[Why
+use Conditional step (single)?]
+
+image:docs/images/screen-capture-1.jpg[image]
+
+== Conditional steps (multiple)
+
+A _Conditional steps (multiple)_ container is able to contain any number
+of any other buildsteps (e.g. Shell, Ant, Maven,...) and you can have
+any number of 'Conditional Steps' containers, each configured with a
+different condition.
+
+image:docs/images/screen-capture-2.jpg[image]
+
+== Examples
+
+Please check out the examples at the https://plugins.jenkins.io/run-condition/[Run Condition Plugin]
+
+== Changelog
+
+* For recent versions, see https://github.com/jenkinsci/conditional-buildstep-plugin/releases[GitHub Releases]
+* For versions 1.3.6 and older, see CHANGELOG.adoc
+
+== Getting Help
+
+For Help please use the https://www.jenkins.io/mailing-lists/[Jenkins Users] mailing list or the Issue tracker (Jira).
+
+== License
+
+// TODO: Add License File to the repo
+Licensed under the https://opensource.org/licenses/MIT[MIT Licence].
